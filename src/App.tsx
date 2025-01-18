@@ -15,7 +15,7 @@ function App() {
             <BurgerIngredients />
           </div>
           <div className='layout-column'>
-            <BurgerIngredients />
+            {/* <BurgerIngredients /> */}
           </div>
         </div>
       </main>

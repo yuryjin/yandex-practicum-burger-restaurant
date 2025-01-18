@@ -6,6 +6,8 @@ import { products } from '../../../utils/data.ts'
 
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import BurgerProduct from './burger-product.tsx'
+import BurgerGrid from './burger-grid.tsx'
+// import BurgerTabs from './burger-tabs.tsx'
 
 const BurgerIngredients = () => {
   const [current, setCurrent] = React.useState('Булки')
@@ -14,6 +16,7 @@ const BurgerIngredients = () => {
   return (
     <>
       <BurgerIngredientsTitle />
+      {/* <BurgerTabs></BurgerTabs> */}
       <div className={styles.tabs}>
         <Tab value="Булки" active={current === 'Булки'} onClick={setCurrent}>
           Булки
@@ -26,6 +29,7 @@ const BurgerIngredients = () => {
         </Tab>
       </div>
 
+      <BurgerGrid className={styles.grid}>
       {
         products.filter((product) => product.type === 'bun').length > 0 ?
           products.filter((product) => product.type === 'bun')  
@@ -34,7 +38,22 @@ const BurgerIngredients = () => {
               <BurgerProduct product={product} />
             )
           }): ''
-        }
+      }
+      </BurgerGrid>
+
+
+
+      {/* <div className={styles.grid}>
+      {
+        products.filter((product) => product.type === 'bun').length > 0 ?
+          products.filter((product) => product.type === 'bun')  
+          .map((product) => {
+            return (
+              <BurgerProduct product={product} />
+            )
+          }): ''
+      }
+      </div> */}
     </>
   )
 }
