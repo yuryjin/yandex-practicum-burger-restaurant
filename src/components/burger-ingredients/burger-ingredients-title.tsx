@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './burger-ingredients.module.scss'
 
 const BurgerIngredientsTitle = () => {
   return (
-    <>Соберите бургер</>
+    <h3 className={styles.title}>Соберите бургер</h3>
   )
 }
 

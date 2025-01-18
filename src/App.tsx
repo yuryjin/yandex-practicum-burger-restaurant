@@ -8,8 +8,17 @@ function App() {
 
   return (
     <>
-      <AppHeader />
-      <BurgerIngredients />
+      <main className='layout-main'>
+        <AppHeader />
+        <div className='layout'>
+          <div className='layout-column'>
+            <BurgerIngredients />
+          </div>
+          <div className='layout-column'>
+            <BurgerIngredients />
+          </div>
+        </div>
+      </main>
     </>
   )
 }

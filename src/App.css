@@ -46,4 +46,22 @@
   /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
+  /* display: flex; */
 }
+
+.layout-column {
+  width: 600px;
+  height: 912px;
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem
+}
+
+/* .layout-main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */
