@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import AppHeader from './components/app-header/app-header'
 import BurgerIngredients from './components/burger-ingredients/burger-ingredients'
+import BurgerConstructor from './components/burger-constructor/burger-constructor'
+import { products } from '../utils/data'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +18,7 @@ function App() {
           </div>
           <div className='layout-column'>
             {/* <BurgerIngredients /> */}
+            <BurgerConstructor products={products} />
           </div>
         </div>
       </main>

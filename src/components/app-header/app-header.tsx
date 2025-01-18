@@ -19,8 +19,6 @@ const AppHeader = () => {
                         <ListIcon type='primary' />
                         <span className="text text_type_main-default">Лента заказов</span>
                     </li>
-
-
                 </menu>
 
                 <Logo />

@@ -1,0 +1,16 @@
+.checkoutBlock {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 0px;
+}
+
+.totalPrice {
+    display: flex;
+    gap: 8px;
+}
+
+.ingredients {
+    height: 464px;
+    overflow-y: auto;
+}

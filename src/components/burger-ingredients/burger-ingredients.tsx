@@ -41,6 +41,7 @@ const BurgerIngredients = () => {
         </Tab>
       </div>
 
+      <div className={`${styles.constructorContent} mt-10`}>
       <BurgerGrid className={styles.grid} name='Булки'>
       {
         products.filter((product) => product.type === 'bun').length > 0 ?
@@ -76,6 +77,7 @@ const BurgerIngredients = () => {
           }): ''
       }
       </BurgerGrid>
+      </div>
 
 
 
