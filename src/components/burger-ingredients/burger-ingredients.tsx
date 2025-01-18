@@ -1,4 +1,5 @@
-import React from 'react'
+// import React from 'react'
+import React, { useState, useEffect } from 'react';
 import BurgerIngredientsTitle from './burger-ingredients-title'
 import styles from './burger-ingredients.module.scss'
 // import products from '@/utils/data.ts'
@@ -12,6 +13,17 @@ import BurgerGrid from './burger-grid.tsx'
 const BurgerIngredients = () => {
   const [current, setCurrent] = React.useState('Булки')
   // const 
+
+  useEffect(() => {
+    // first
+  
+    // return () => {
+    //   second
+    // }
+    console.log(products);
+    
+  }, [])
+  
 
   return (
     <>
@@ -29,13 +41,37 @@ const BurgerIngredients = () => {
         </Tab>
       </div>
 
-      <BurgerGrid className={styles.grid}>
+      <BurgerGrid className={styles.grid} name='Булки'>
       {
         products.filter((product) => product.type === 'bun').length > 0 ?
           products.filter((product) => product.type === 'bun')  
           .map((product) => {
             return (
-              <BurgerProduct product={product} />
+              <BurgerProduct key={product._id} product={product} />
+            )
+          }): ''
+      }
+      </BurgerGrid>
+
+      <BurgerGrid className={styles.grid} name='Соусы'>
+      {
+        products.filter((product) => product.type === 'sauce').length > 0 ?
+          products.filter((product) => product.type === 'sauce')  
+          .map((product) => {
+            return (
+              <BurgerProduct key={product._id} product={product} />
+            )
+          }): ''
+      }
+      </BurgerGrid>
+
+      <BurgerGrid className={styles.grid} name='Начинки'>
+      {
+        products.filter((product) => product.type === 'main').length > 0 ?
+          products.filter((product) => product.type === 'main')  
+          .map((product) => {
+            return (
+              <BurgerProduct key={product._id} product={product} />
             )
           }): ''
       }

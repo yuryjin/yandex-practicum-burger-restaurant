@@ -3,7 +3,10 @@ import styles from './styles/burger-grid.module.scss'
 
 const BurgerGrid = (props) => {
   return (
-    <div className={styles.grid}>{props.children}</div>
+    <>
+      <h3 className={`${styles.gridHeader} text text_type_main-medium pt-4`}>{props.name}</h3>
+      <div className={styles.grid}>{props.children}</div>
+    </>
   )
 }
 
