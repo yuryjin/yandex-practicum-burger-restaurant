@@ -1,4 +1,3 @@
-import React from 'react'
 import ConstructorElementEmpty from '../ui/ConstructorElementEmpty'
 import styles from './styles/burger-constructor.module.scss'
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
@@ -11,10 +10,6 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
                 {
                     ingredients.map((ingredient, index: number) => {
                         return (
-                            // <ConstructorElementEmpty
-                            //     text='Пожалуйста, выберите булку для вашего бургера'
-                            //     extraClass='ml-10 mt-4'
-                            // />
                             <div className={`${styles.BurgerConstructorItem} pb-4`} key={`${ingredient._id}${index}`}>
                                 <DragIcon type="primary" />
                 
@@ -30,10 +25,6 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
                 }
             </div>
         )
-        // <ConstructorElementEmpty
-        //     text='Пожалуйста, выберите булку для вашего бургера'
-        //     extraClass='ml-10 mt-4'
-        // />
     } 
     
     return (
@@ -42,15 +33,6 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
             extraClass='ml-10 mt-4 mb-4'
         />
     )
-    
-    // else {
-
-    // }
-
-
-//   return (
-//     <div>BurgerConstructorIngredientsList</div>
-//   )
 }
 
 export default BurgerConstructorIngredientsList

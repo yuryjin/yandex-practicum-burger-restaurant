@@ -1,5 +1,4 @@
 import { useEffect, useReducer, useState } from 'react'
-import './App.css'
 import AppHeader from './components/app-header/app-header'
 import BurgerIngredients from './components/burger-ingredients/burger-ingredients'
 import BurgerConstructor from './components/burger-constructor/burger-constructor'
@@ -8,11 +7,9 @@ import Modal from './components/modal/modal'
 import IngredientDetails from './components/ingredient-details/ingredient-details'
 import OrderDetails from './components/order-details/order-details'
 import styles from './app.module.scss'
-import ContentLoader, {
-  List,
-} from 'react-content-loader'
+import { List } from 'react-content-loader'
 
-function updatePrice(totalPrice, action) {
+function updatePrice(totalPrice: number, action) {
   const { type, amount } = action
   switch (type) {
     case 'increment': {

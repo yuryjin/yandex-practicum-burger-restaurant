@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './styles/burger-grid.module.scss'
 
 const BurgerGrid = (props) => {

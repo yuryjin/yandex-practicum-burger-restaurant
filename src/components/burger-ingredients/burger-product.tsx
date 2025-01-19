@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './styles/burger-product.module.scss'
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 
@@ -16,18 +15,8 @@ const BurgerProduct = ({ product, onAddItem }) => {
           <h4 className='text text_type_digits-default'>{product.price}</h4>
           <CurrencyIcon type="primary" />
         </div>
-
         <h4 className='text text_type_main-small pt-1'>{product.name}</h4>
-
-        {/* <br />
-        <br />
-        {JSON.stringify(product, null, 2)} */}
       </div>
-        
-
-
-
-        
     </>
   )
 }

@@ -1,27 +1,14 @@
-// import React from 'react'
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BurgerIngredientsTitle from './burger-ingredients-title'
 import styles from './burger-ingredients.module.scss'
-// import products from '@/utils/data.ts'
-// import { products } from '../../../utils/data.ts'
-
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import BurgerProduct from './burger-product.tsx'
 import BurgerGrid from './burger-grid.tsx'
-// import BurgerTabs from './burger-tabs.tsx'
 
 const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
-  const [current, setCurrent] = React.useState('Булки')
-  // const 
+  const [current, setCurrent] = useState('Булки')
 
   useEffect(() => {
-    // first
-  
-    // return () => {
-    //   second
-    // }
-    // console.log(products);
-    
   }, [])
 
   const chooseBun = (bun) => {
@@ -85,20 +72,6 @@ const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
       }
       </BurgerGrid>
       </div>
-
-
-
-      {/* <div className={styles.grid}>
-      {
-        products.filter((product) => product.type === 'bun').length > 0 ?
-          products.filter((product) => product.type === 'bun')  
-          .map((product) => {
-            return (
-              <BurgerProduct product={product} />
-            )
-          }): ''
-      }
-      </div> */}
     </>
   )
 }

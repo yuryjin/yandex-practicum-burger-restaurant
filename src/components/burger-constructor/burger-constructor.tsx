@@ -1,22 +1,13 @@
-import React from 'react'
-import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
+import { Button, ConstructorElement, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './styles/burger-constructor.module.scss'
 import ConstructorElementEmpty from '../ui/ConstructorElementEmpty'
 import BurgerConstructorIngredientsList from './burger-constructor-ingredients-list'
 
 const BurgerConstructor = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }) => {
-  // const UpperBunText
-
   return (
     <>
       <div className='pt-25 pr-1'>
-        <div style={{ display: 'flex', flexDirection: 'column'
-          // , gap: '16px' 
-        }}>
-
-          {/* {JSON.stringify(bun, null, 2)} */}
-          {/* {JSON.stringify(ingredients, null, 2)} */}
-
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           {
             bun ?
             <ConstructorElement
@@ -51,8 +42,6 @@ const BurgerConstructor = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }
               extraClass='ml-10'
             />
           }
-
-          {/* <ConstructorElement>asfd</ConstructorElement> */}
         </div>
 
         <div className={`${styles.checkoutBlock} pt-10`}>

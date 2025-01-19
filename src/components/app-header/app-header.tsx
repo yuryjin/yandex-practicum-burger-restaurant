@@ -1,8 +1,5 @@
 
-import React from 'react'
-// import './styles/app-header.css'
 import styles from './styles/app-header.module.scss'
-// import burgerIcon from '../images/icons/burger-icon.svg'
 import { BurgerIcon, ListIcon, Logo, ProfileIcon   } from '@ya.praktikum/react-developer-burger-ui-components'
 
 const AppHeader = () => {
@@ -17,8 +14,8 @@ const AppHeader = () => {
                     </li>
 
                     <li className={styles.li}>
-                        <ListIcon type='primary' />
-                        <span className="text text_type_main-default">Лента заказов</span>
+                        <ListIcon type='secondary' />
+                        <span className="text text_type_main-default text_color_inactive">Лента заказов</span>
                     </li>
                 </menu>
 
@@ -26,8 +23,8 @@ const AppHeader = () => {
 
                 <menu className={styles.menu}>
                     <li className={styles.li}>
-                        <ProfileIcon  type='primary' />
-                        <span className="text text_type_main-default">Личный кабинет</span>
+                        <ProfileIcon  type='secondary' />
+                        <span className="text text_type_main-default text_color_inactive">Личный кабинет</span>
                     </li>
                 </menu>
             </nav>

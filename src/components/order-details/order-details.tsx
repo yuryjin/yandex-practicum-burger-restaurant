@@ -9,9 +9,7 @@ const OrderDetails = ({ onClose }) => {
             <CloseIcon type="primary" onClick={onClose} />
         </header>
         
-        {/* {JSON.stringify(ingredient, null, 2)} */}
         <div className={styles.info}>
-
             <p className="text text_type_digits-large pt-30">034536</p>
             <p className="text text_type_main-medium pt-8">идентификатор заказа</p>
 
