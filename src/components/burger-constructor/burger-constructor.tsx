@@ -4,7 +4,7 @@ import styles from './styles/burger-constructor.module.scss'
 import ConstructorElementEmpty from '../ui/ConstructorElementEmpty'
 import BurgerConstructorIngredientsList from './burger-constructor-ingredients-list'
 
-const BurgerConstructor = ({ ingredients, bun, totalPrice }) => {
+const BurgerConstructor = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }) => {
   // const UpperBunText
 
   return (
@@ -61,7 +61,7 @@ const BurgerConstructor = ({ ingredients, bun, totalPrice }) => {
             <CurrencyIcon type="primary" />
           </div>
 
-          <Button htmlType="button" type="primary" size="large" extraClass={`ml-2`}>
+          <Button htmlType="button" type="primary" size="large" extraClass={`ml-2`} onClick={() => onOpenCheckoutModal()}>
             Оформить заказ
           </Button>
         </div>

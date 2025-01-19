@@ -6,6 +6,7 @@ import BurgerConstructor from './components/burger-constructor/burger-constructo
 import { products } from '../utils/data'
 import Modal from './components/modal/modal'
 import IngredientDetails from './components/ingredient-details/ingredient-details'
+import OrderDetails from './components/order-details/order-details'
 
 function updatePrice(totalPrice, action) {
   // const newTotalPrice = totalPrice
@@ -45,6 +46,8 @@ function App() {
   // const [totalPrice, setTotalPrice] = useState(null)
   const [totalPrice, setTotalPrice] = useReducer(updatePrice, 0)
   const [isOpen, setIsOpen] = useState(false)
+  const [chosenIngredient, setChosenIngredient] = useState(null)
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
 
   const ChangeBun = (bun) => {
     if (currentBun && currentBun._id !== bun._id) {
@@ -73,26 +76,38 @@ function App() {
     })
   }
 
+  const onClickOnIngredient = (ingredient) => {
+    setIsOpen(true)
+    setChosenIngredient(ingredient)
+  }
 
+  const openCheckoutModal = () => {
+    setIsCheckoutOpen(true)
+    setIsOpen(true)
+  }
 
   return (
     <>
 
     <Modal open={isOpen} onClose={() => setIsOpen(false)}>
       {/* Fancy Modal */}
-      <IngredientDetails />
+      {
+        isCheckoutOpen ? 
+        <OrderDetails /> : <IngredientDetails ingredient={chosenIngredient} onClose={() => setIsOpen(false)} />
+      }
+      
     </Modal>
 
       <main className='layout-main'>
         <AppHeader />
         <div className='layout'>
           <div className='layout-column'>
-            <BurgerIngredients onAddItem={AddItemToSelectedProducts} OnChangeBun={ChangeBun} />
+            <BurgerIngredients onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
           </div>
           <div className='layout-column'>
             {/* <BurgerIngredients /> */}
             {/* {JSON.stringify(currentBun, null, 2)} */}
-            <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} />
+            <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} onOpenCheckoutModal={openCheckoutModal} />
           </div>
         </div>
       </main>

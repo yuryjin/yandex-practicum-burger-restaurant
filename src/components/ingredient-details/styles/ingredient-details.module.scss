@@ -26,3 +26,30 @@
 .card {
 
 }
+
+.productImage {
+    width: 480px;
+    height: 240px;
+}
+
+.info {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    gap: 0px;
+    text-align: center;
+    max-width: 100%;
+    width: 516px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    
+    h4 {
+        line-height: 64px;
+    }
+}

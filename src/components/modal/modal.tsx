@@ -4,7 +4,7 @@ import styles from './styles/modal.module.scss'
 import ModalOverlay from '../modal-overlay/modal-overlay'
 
 const Modal = ({ open, children, onClose }) => {
-    // if (!open) return null
+    if (!open) return null
 
     return createPortal(
       <>
@@ -12,7 +12,7 @@ const Modal = ({ open, children, onClose }) => {
           {/* <button onClick={onClose}>Close Modal</button> */}
           {children}
         </div>
-        <ModalOverlay />
+        <ModalOverlay onClose={() => onClose()} />
       </>,
       document.getElementById('portal')
     )
