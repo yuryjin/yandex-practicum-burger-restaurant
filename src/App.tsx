@@ -1,29 +1,19 @@
-import { useReducer, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import './App.css'
 import AppHeader from './components/app-header/app-header'
 import BurgerIngredients from './components/burger-ingredients/burger-ingredients'
 import BurgerConstructor from './components/burger-constructor/burger-constructor'
-import { products } from '../utils/data'
+import { mockBun, mockIngredients } from '../utils/data'
 import Modal from './components/modal/modal'
 import IngredientDetails from './components/ingredient-details/ingredient-details'
 import OrderDetails from './components/order-details/order-details'
 import styles from './app.module.scss'
+import ContentLoader, {
+  List,
+} from 'react-content-loader'
 
 function updatePrice(totalPrice, action) {
-  // const newTotalPrice = totalPrice
   const { type, amount } = action
-
-  // if (action.type === 'increment') {
-  //   // return { 
-  //   //   // ...state,
-  //   //   totalPrice: 
-  //   // }
-  //   return totalPrice
-  // }
-  // if (condition) {
-    
-  // }
-
   switch (type) {
     case 'increment': {
       const newTotalPrice = totalPrice + amount
@@ -43,11 +33,34 @@ function updatePrice(totalPrice, action) {
 function App() {
   const [ingredients, setIngredients] = useState([])
   const [currentBun, setCurrentBun] = useState(null)
-  // const [totalPrice, setTotalPrice] = useState(null)
   const [totalPrice, setTotalPrice] = useReducer(updatePrice, 0)
   const [isOpen, setIsOpen] = useState(false)
   const [chosenIngredient, setChosenIngredient] = useState(null)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+
+  const [products, setProducts] = useState([])
+  const [hasError, setHasError] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    uploadProducts()
+
+    setCurrentBun(mockBun)
+    setIngredients(mockIngredients)
+  }, [])
+  
+  const uploadProducts = () => {
+    fetch(`https://norma.nomoreparties.space/api/ingredients`)
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data.data)
+        setIsLoading(false)
+      })
+      .catch(e => {
+        setIsLoading(false)
+        setHasError(true)
+      })
+  }
 
   const ChangeBun = (bun) => {
     if (currentBun && currentBun._id !== bun._id) {
@@ -57,7 +70,6 @@ function App() {
       })
     }
     setCurrentBun(bun)
-    // if (currentBun && currentBun._id !== bun._id) {
     if (!currentBun || (currentBun && currentBun._id !== bun._id)) {
       setTotalPrice({
         type: 'increment',
@@ -89,7 +101,6 @@ function App() {
 
   return (
     <>
-
       <div className={styles["layout-main"]}>
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           {
@@ -102,10 +113,29 @@ function App() {
           <AppHeader />
           <div className={styles.layout}>
             <div className={styles["layout-column"]}>
-              <BurgerIngredients onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
+              {
+                isLoading ?
+                <List></List> :
+                <BurgerIngredients products={products} onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
+              }
+
+              {
+                hasError ? 
+                <h4 className="text text_type_main-medium text_color_inactive">При загрузке данных произошла ошибка. Сожалеем и приносим извинения!</h4> : ''
+              }
+
             </div>
             <div className={styles["layout-column"]}>
-              <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} onOpenCheckoutModal={openCheckoutModal} />
+              {
+                isLoading ?
+                <List></List> :
+                <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} onOpenCheckoutModal={openCheckoutModal} />
+              }
+
+              {
+                hasError ? 
+                <h4 className="text text_type_main-medium text_color_inactive">При загрузке данных произошла ошибка. Сожалеем и приносим извинения!</h4> : ''
+              }
             </div>
           </div>
         </main>

@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import BurgerIngredientsTitle from './burger-ingredients-title'
 import styles from './burger-ingredients.module.scss'
 // import products from '@/utils/data.ts'
-import { products } from '../../../utils/data.ts'
+// import { products } from '../../../utils/data.ts'
 
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import BurgerProduct from './burger-product.tsx'
 import BurgerGrid from './burger-grid.tsx'
 // import BurgerTabs from './burger-tabs.tsx'
 
-const BurgerIngredients = ({ onAddItem, OnChangeBun }) => {
+const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
   const [current, setCurrent] = React.useState('Булки')
   // const 
 
@@ -20,7 +20,7 @@ const BurgerIngredients = ({ onAddItem, OnChangeBun }) => {
     // return () => {
     //   second
     // }
-    console.log(products);
+    // console.log(products);
     
   }, [])
 

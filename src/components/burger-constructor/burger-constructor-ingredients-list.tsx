@@ -9,13 +9,13 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
         return (
             <div className={`${styles.ingredients} mt-4`}>
                 {
-                    ingredients.map((ingredient) => {
+                    ingredients.map((ingredient, index: number) => {
                         return (
                             // <ConstructorElementEmpty
                             //     text='Пожалуйста, выберите булку для вашего бургера'
                             //     extraClass='ml-10 mt-4'
                             // />
-                            <div className={`${styles.BurgerConstructorItem} pb-4`}>
+                            <div className={`${styles.BurgerConstructorItem} pb-4`} key={`${ingredient._id}${index}`}>
                                 <DragIcon type="primary" />
                 
                                 <ConstructorElement
