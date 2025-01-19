@@ -7,7 +7,7 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
 
     if (ingredients && ingredients.length > 0) {
         return (
-            <div className={styles.ingredients}>
+            <div className={`${styles.ingredients} mt-4`}>
                 {
                     ingredients.map((ingredient) => {
                         return (
@@ -15,7 +15,7 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
                             //     text='Пожалуйста, выберите булку для вашего бургера'
                             //     extraClass='ml-10 mt-4'
                             // />
-                            <div className={`${styles.BurgerConstructorItem} pt-4`}>
+                            <div className={`${styles.BurgerConstructorItem} pb-4`}>
                                 <DragIcon type="primary" />
                 
                                 <ConstructorElement
@@ -39,7 +39,7 @@ const BurgerConstructorIngredientsList = ({ ingredients }) => {
     return (
         <ConstructorElementEmpty
             text='Пожалуйста, выберите булку для вашего бургера'
-            extraClass='ml-10 mt-4'
+            extraClass='ml-10 mt-4 mb-4'
         />
     )
     

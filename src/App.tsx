@@ -86,7 +86,7 @@ function App() {
           </div>
           <div className='layout-column'>
             {/* <BurgerIngredients /> */}
-            {JSON.stringify(currentBun, null, 2)}
+            {/* {JSON.stringify(currentBun, null, 2)} */}
             <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} />
           </div>
         </div>
