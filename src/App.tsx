@@ -93,7 +93,7 @@ function App() {
       {/* Fancy Modal */}
       {
         isCheckoutOpen ? 
-        <OrderDetails /> : <IngredientDetails ingredient={chosenIngredient} onClose={() => setIsOpen(false)} />
+        <OrderDetails onClose={() => setIsOpen(false)} /> : <IngredientDetails ingredient={chosenIngredient} onClose={() => setIsOpen(false)} />
       }
       
     </Modal>
