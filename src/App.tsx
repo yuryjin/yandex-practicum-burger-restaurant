@@ -7,6 +7,7 @@ import { products } from '../utils/data'
 import Modal from './components/modal/modal'
 import IngredientDetails from './components/ingredient-details/ingredient-details'
 import OrderDetails from './components/order-details/order-details'
+import styles from './app.module.scss'
 
 function updatePrice(totalPrice, action) {
   // const newTotalPrice = totalPrice
@@ -40,7 +41,6 @@ function updatePrice(totalPrice, action) {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
   const [ingredients, setIngredients] = useState([])
   const [currentBun, setCurrentBun] = useState(null)
   // const [totalPrice, setTotalPrice] = useState(null)
@@ -77,6 +77,7 @@ function App() {
   }
 
   const onClickOnIngredient = (ingredient) => {
+    setIsCheckoutOpen(false)
     setIsOpen(true)
     setChosenIngredient(ingredient)
   }
@@ -89,29 +90,26 @@ function App() {
   return (
     <>
 
-    <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-      {/* Fancy Modal */}
-      {
-        isCheckoutOpen ? 
-        <OrderDetails onClose={() => setIsOpen(false)} /> : <IngredientDetails ingredient={chosenIngredient} onClose={() => setIsOpen(false)} />
-      }
-      
-    </Modal>
+      <div className={styles["layout-main"]}>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          {
+            isCheckoutOpen ? 
+            <OrderDetails onClose={() => setIsOpen(false)} /> : <IngredientDetails ingredient={chosenIngredient} onClose={() => setIsOpen(false)} />
+          }
+        </Modal>
 
-      <main className='layout-main'>
-        <AppHeader />
-        <div className='layout'>
-          <div className='layout-column'>
-            <BurgerIngredients onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
+        <main className='layout-main'>
+          <AppHeader />
+          <div className={styles.layout}>
+            <div className={styles["layout-column"]}>
+              <BurgerIngredients onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
+            </div>
+            <div className={styles["layout-column"]}>
+              <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} onOpenCheckoutModal={openCheckoutModal} />
+            </div>
           </div>
-          <div className='layout-column'>
-            {/* <BurgerIngredients /> */}
-            {/* {JSON.stringify(currentBun, null, 2)} */}
-            <BurgerConstructor ingredients={ingredients} bun={currentBun} totalPrice={totalPrice} onOpenCheckoutModal={openCheckoutModal} />
-          </div>
-        </div>
-      </main>
-
+        </main>
+      </div>
     </>
   )
 }
