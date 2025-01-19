@@ -10,7 +10,7 @@ import BurgerProduct from './burger-product.tsx'
 import BurgerGrid from './burger-grid.tsx'
 // import BurgerTabs from './burger-tabs.tsx'
 
-const BurgerIngredients = () => {
+const BurgerIngredients = ({ onAddItem, OnChangeBun }) => {
   const [current, setCurrent] = React.useState('Булки')
   // const 
 
@@ -23,7 +23,14 @@ const BurgerIngredients = () => {
     console.log(products);
     
   }, [])
+
+  const chooseBun = (bun) => {
+    OnChangeBun(bun)
+  } 
   
+  const chooseProduct = (ingredient) => {
+    onAddItem(ingredient)
+  }
 
   return (
     <>
@@ -48,7 +55,7 @@ const BurgerIngredients = () => {
           products.filter((product) => product.type === 'bun')  
           .map((product) => {
             return (
-              <BurgerProduct key={product._id} product={product} />
+              <BurgerProduct key={product._id} product={product} onAddItem={chooseBun} />
             )
           }): ''
       }
@@ -60,7 +67,7 @@ const BurgerIngredients = () => {
           products.filter((product) => product.type === 'sauce')  
           .map((product) => {
             return (
-              <BurgerProduct key={product._id} product={product} />
+              <BurgerProduct key={product._id} product={product} onAddItem={chooseProduct} />
             )
           }): ''
       }
@@ -72,7 +79,7 @@ const BurgerIngredients = () => {
           products.filter((product) => product.type === 'main')  
           .map((product) => {
             return (
-              <BurgerProduct key={product._id} product={product} />
+              <BurgerProduct key={product._id} product={product} onAddItem={chooseProduct} />
             )
           }): ''
       }
