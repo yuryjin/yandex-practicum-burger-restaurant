@@ -4,6 +4,8 @@ import AppHeader from './components/app-header/app-header'
 import BurgerIngredients from './components/burger-ingredients/burger-ingredients'
 import BurgerConstructor from './components/burger-constructor/burger-constructor'
 import { products } from '../utils/data'
+import Modal from './components/modal/modal'
+import IngredientDetails from './components/ingredient-details/ingredient-details'
 
 function updatePrice(totalPrice, action) {
   // const newTotalPrice = totalPrice
@@ -42,6 +44,7 @@ function App() {
   const [currentBun, setCurrentBun] = useState(null)
   // const [totalPrice, setTotalPrice] = useState(null)
   const [totalPrice, setTotalPrice] = useReducer(updatePrice, 0)
+  const [isOpen, setIsOpen] = useState(false)
 
   const ChangeBun = (bun) => {
     if (currentBun && currentBun._id !== bun._id) {
@@ -63,21 +66,23 @@ function App() {
   }
 
   const AddItemToSelectedProducts = (ingredient) => {
-    // console.log('выбран продукт ' + ingredient);
     setIngredients([...ingredients, ingredient])
     setTotalPrice({
       type: 'increment',
       amount: ingredient.price
     })
-    
-    // console.log('ингредиенты');
-    
-    // console.log(ingredients);
-    
   }
+
+
 
   return (
     <>
+
+    <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+      {/* Fancy Modal */}
+      <IngredientDetails />
+    </Modal>
+
       <main className='layout-main'>
         <AppHeader />
         <div className='layout'>
@@ -91,6 +96,7 @@ function App() {
           </div>
         </div>
       </main>
+
     </>
   )
 }
