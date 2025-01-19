@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ConstructorElement, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
+import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './styles/burger-constructor.module.scss'
 
 const BurgerConstructor = ({ products }) => {
@@ -15,18 +15,22 @@ const BurgerConstructor = ({ products }) => {
             text="Краторная булка N-200i (верх)"
             price={200}
             thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
-            extraClass={`ml-8`}
+            extraClass={`ml-10`}
           />
 
           <div className={styles.ingredients}>
-            <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
-              extraClass={`ml-8 mt-4`}
-            />
+            <div className={`${styles.BurgerConstructorItem} pt-4`}>
+              <DragIcon type="primary" />
+
+              <ConstructorElement
+                text="Краторная булка N-200i (верх)"
+                price={50}
+                thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
+                extraClass={`mt-0 ml-1`}
+              />
+            </div>
             
-            <ConstructorElement
+            {/* <ConstructorElement
               text="Краторная булка N-200i (верх)"
               price={50}
               thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
@@ -66,7 +70,7 @@ const BurgerConstructor = ({ products }) => {
               price={50}
               thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
               extraClass={`ml-8 mt-4`}
-            />
+            /> */}
             
           </div>
           <ConstructorElement
@@ -75,16 +79,17 @@ const BurgerConstructor = ({ products }) => {
             text="Краторная булка N-200i (низ)"
             price={200}
             thumbnail={"https://code.s3.yandex.net/react/code/sauce-02.png"}
+            extraClass={`ml-10 mt-4`}
           />
         </div>
 
         <div className={`${styles.checkoutBlock} pt-10`}>
           <div className={`${styles.totalPrice} pr-10`}>
-            <h4 className='text text_type_digits-default'>{"610"}</h4>
+            <h4 className='text text_type_digits-medium'>{"610"}</h4>
             <CurrencyIcon type="primary" />
           </div>
 
-          <Button htmlType="button" type="primary" size="small" extraClass="ml-2">
+          <Button htmlType="button" type="primary" size="large" extraClass={`ml-2`}>
             Оформить заказ
           </Button>
         </div>

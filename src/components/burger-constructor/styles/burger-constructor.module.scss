@@ -8,9 +8,22 @@
 .totalPrice {
     display: flex;
     gap: 8px;
+    justify-content: center;
+    align-items: center;
 }
 
 .ingredients {
-    height: 464px;
+    max-height: 464px;
     overflow-y: auto;
+}
+
+.checkoutButton {
+    height: 36px;
+    width: 36px;
+}
+
+.BurgerConstructorItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
