@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './styles/ingredient-details-info-item.module.scss'
 
-import { Ingredient } from '../../../types/types';
-
 const IngredientDetailsInfoItem: React.FC<{
   text: string | undefined;
   value: number | null;
