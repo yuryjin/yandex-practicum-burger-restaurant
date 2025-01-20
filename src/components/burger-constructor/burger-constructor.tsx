@@ -6,8 +6,8 @@ import BurgerConstructorIngredientsList from './burger-constructor-ingredients-l
 import { Ingredient } from '../../../types/types'
 
 const BurgerConstructor: React.FC<{
-    ingredients: Ingredient[];
-    bun: Ingredient,
+    ingredients: Ingredient[] | [] | null;
+    bun: Ingredient | null,
     totalPrice: number,
     onOpenCheckoutModal: () => void,
 }> = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }) => {

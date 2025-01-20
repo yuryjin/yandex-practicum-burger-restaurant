@@ -7,7 +7,7 @@ import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import { Ingredient } from '../../../types/types'
 
 const IngredientDetails: React.FC<{
-    ingredient: Ingredient;
+    ingredient: Ingredient | null;
     onClose: () => void;
 }> = ({ 
     ingredient, 

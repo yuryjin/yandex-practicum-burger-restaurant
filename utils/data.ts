@@ -1,4 +1,7 @@
-export const products = [
+import { SetStateAction } from "react"
+import { Ingredient } from "../types/types"
+
+export const products: Ingredient[] | null = [
     {
         "_id": "60666c42cc7b410027a1a9b1",
         "name": "Краторная булка N-200i",
@@ -211,7 +214,7 @@ export const products = [
     }
 ]
 
-export const mockBun =     {
+export const mockBun: Ingredient | null = {
     "_id": "60666c42cc7b410027a1a9b1",
     "name": "Краторная булка N-200i",
     "type": "bun",
@@ -226,7 +229,7 @@ export const mockBun =     {
     "__v": 0
 }
 
-export const mockIngredients = [
+export const mockIngredients: Ingredient[] | null = [
     {
         "_id": "60666c42cc7b410027a1a9b9",
         "name": "Соус традиционный галактический",

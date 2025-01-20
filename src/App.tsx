@@ -11,7 +11,12 @@ import { List } from 'react-content-loader'
 
 import { Ingredient } from '../types/types'
 
-function updatePrice(totalPrice: number, action) {
+interface Action {
+  type: string | undefined,
+  amount: number,
+}
+
+function updatePrice(totalPrice: number, action: Action) {
   const { type, amount } = action
   switch (type) {
     case 'increment': {
@@ -30,14 +35,14 @@ function updatePrice(totalPrice: number, action) {
 }
 
 function App() {
-  const [ingredients, setIngredients] = useState([])
-  const [currentBun, setCurrentBun] = useState(null)
+  const [ingredients, setIngredients] = useState<Ingredient[] | [] | null>([])
+  const [currentBun, setCurrentBun] = useState<Ingredient | null>(null)
   const [totalPrice, setTotalPrice] = useReducer(updatePrice, 0)
   const [isOpen, setIsOpen] = useState(false)
-  const [chosenIngredient, setChosenIngredient] = useState(null)
+  const [chosenIngredient, setChosenIngredient] = useState<Ingredient | null>(null)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
 
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState<Ingredient[] | [] | null>([])
   const [hasError, setHasError] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -61,31 +66,29 @@ function App() {
       })
   }
 
-  const ChangeBun = (bun: Ingredient) => {
-    if (currentBun && currentBun._id !== bun._id) {
-      setTotalPrice({
-        type: 'decrement',
-        amount: currentBun.price * 2
-      })
-    }
-    setCurrentBun(bun)
-    if (!currentBun || (currentBun && currentBun._id !== bun._id)) {
-      setTotalPrice({
-        type: 'increment',
-        amount: bun?.price * 2
-      })
-    }
-    console.log(currentBun);
-    
-  }
+  // const ChangeBun = (bun: Ingredient) => {
+  //   if (currentBun && currentBun._id !== bun._id) {
+  //     setTotalPrice({
+  //       type: 'decrement',
+  //       amount: currentBun.price * 2
+  //     })
+  //   }
+  //   setCurrentBun(bun)
+  //   if (!currentBun || (currentBun && currentBun._id !== bun._id)) {
+  //     setTotalPrice({
+  //       type: 'increment',
+  //       amount: bun?.price * 2
+  //     })
+  //   }
+  // }
 
-  const AddItemToSelectedProducts = (ingredient: Ingredient[]) => {
-    setIngredients([...ingredients, ingredient])
-    setTotalPrice({
-      type: 'increment',
-      amount: ingredient?.price
-    })
-  }
+  // const AddItemToSelectedProducts = (ingredient: Ingredient[]) => {
+  //   setIngredients([...ingredients, ingredient])
+  //   setTotalPrice({
+  //     type: 'increment',
+  //     amount: ingredient?.price
+  //   })
+  // }
 
   const onClickOnIngredient = (ingredient: Ingredient) => {
     setIsCheckoutOpen(false)

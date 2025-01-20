@@ -8,7 +8,7 @@ import BurgerGrid from './burger-grid.tsx'
 import { Ingredient } from '../../../types/types.ts';
 
 const BurgerIngredients: React.FC<{
-    ingredients: Ingredient[];
+    ingredients: Ingredient[] | [] | null;
     onAddItem: (bun: Ingredient) => void,
     OnChangeBun: (ingredient: Ingredient) => void,
 }>  = ({ ingredients, onAddItem, OnChangeBun }) => {
