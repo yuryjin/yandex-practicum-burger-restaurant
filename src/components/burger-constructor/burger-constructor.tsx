@@ -3,7 +3,14 @@ import styles from './styles/burger-constructor.module.scss'
 import ConstructorElementEmpty from '../ui/ConstructorElementEmpty'
 import BurgerConstructorIngredientsList from './burger-constructor-ingredients-list'
 
-const BurgerConstructor = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }) => {
+import { Ingredient } from '../../../types/types'
+
+const BurgerConstructor: React.FC<{
+    ingredients: Ingredient[];
+    bun: Ingredient,
+    totalPrice: number,
+    onOpenCheckoutModal: () => void,
+}> = ({ ingredients, bun, totalPrice, onOpenCheckoutModal }) => {
   return (
     <>
       <div className='pt-25 pr-1'>

@@ -5,17 +5,23 @@ import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import BurgerProduct from './burger-product.tsx'
 import BurgerGrid from './burger-grid.tsx'
 
-const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
+import { Ingredient } from '../../../types/types.ts';
+
+const BurgerIngredients: React.FC<{
+    ingredients: Ingredient[];
+    onAddItem: () => void,
+    OnChangeBun: () => void,
+}>  = ({ ingredients, onAddItem, OnChangeBun }) => {
   const [current, setCurrent] = useState('Булки')
 
   useEffect(() => {
   }, [])
 
-  const chooseBun = (bun) => {
+  const chooseBun = (bun: Ingredient) => {
     OnChangeBun(bun)
   } 
   
-  const chooseProduct = (ingredient) => {
+  const chooseProduct = (ingredient: Ingredient) => {
     onAddItem(ingredient)
   }
 
@@ -36,11 +42,11 @@ const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
       </div>
 
       <div className={`${styles.constructorContent} mt-10`}>
-      <BurgerGrid className={styles.grid} name='Булки'>
+      <BurgerGrid name='Булки'>
       {
-        products.filter((product) => product.type === 'bun').length > 0 ?
-          products.filter((product) => product.type === 'bun')  
-          .map((product) => {
+        ingredients.filter((product: Ingredient) => product.type === 'bun').length > 0 ?
+          ingredients.filter((product: Ingredient) => product.type === 'bun')  
+          .map((product: Ingredient) => {
             return (
               <BurgerProduct key={product._id} product={product} onAddItem={chooseBun} />
             )
@@ -48,11 +54,11 @@ const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
       }
       </BurgerGrid>
 
-      <BurgerGrid className={styles.grid} name='Соусы'>
+      <BurgerGrid name='Соусы'>
       {
-        products.filter((product) => product.type === 'sauce').length > 0 ?
-          products.filter((product) => product.type === 'sauce')  
-          .map((product) => {
+        ingredients.filter((product: Ingredient) => product.type === 'sauce').length > 0 ?
+          ingredients.filter((product: Ingredient) => product.type === 'sauce')  
+          .map((product: Ingredient) => {
             return (
               <BurgerProduct key={product._id} product={product} onAddItem={chooseProduct} />
             )
@@ -60,11 +66,11 @@ const BurgerIngredients = ({ products, onAddItem, OnChangeBun }) => {
       }
       </BurgerGrid>
 
-      <BurgerGrid className={styles.grid} name='Начинки'>
+      <BurgerGrid name='Начинки'>
       {
-        products.filter((product) => product.type === 'main').length > 0 ?
-          products.filter((product) => product.type === 'main')  
-          .map((product) => {
+        ingredients.filter((product: Ingredient) => product.type === 'main').length > 0 ?
+          ingredients.filter((product: Ingredient) => product.type === 'main')  
+          .map((product: Ingredient) => {
             return (
               <BurgerProduct key={product._id} product={product} onAddItem={chooseProduct} />
             )

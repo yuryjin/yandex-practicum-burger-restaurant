@@ -1,7 +1,12 @@
 import React from 'react'
 import styles from './styles/ingredient-details-info-item.module.scss'
 
-const IngredientDetailsInfoItem = ({ text, value}) => {
+import { Ingredient } from '../../../types/types';
+
+const IngredientDetailsInfoItem: React.FC<{
+  text: string | undefined;
+  value: string | undefined;
+}> = ({ text, value}) => {
   return (
     <div className={styles.infoitem}>
         <p className={`text text_type_main-small ${styles.text}`}>{text}</p>

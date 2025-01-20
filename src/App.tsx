@@ -9,6 +9,8 @@ import OrderDetails from './components/order-details/order-details'
 import styles from './app.module.scss'
 import { List } from 'react-content-loader'
 
+import { Ingredient } from '../types/types'
+
 function updatePrice(totalPrice: number, action) {
   const { type, amount } = action
   switch (type) {
@@ -59,7 +61,7 @@ function App() {
       })
   }
 
-  const ChangeBun = (bun) => {
+  const ChangeBun = (bun: Ingredient) => {
     if (currentBun && currentBun._id !== bun._id) {
       setTotalPrice({
         type: 'decrement',
@@ -70,22 +72,22 @@ function App() {
     if (!currentBun || (currentBun && currentBun._id !== bun._id)) {
       setTotalPrice({
         type: 'increment',
-        amount: bun.price * 2
+        amount: bun?.price * 2
       })
     }
     console.log(currentBun);
     
   }
 
-  const AddItemToSelectedProducts = (ingredient) => {
+  const AddItemToSelectedProducts = (ingredient: Ingredient[]) => {
     setIngredients([...ingredients, ingredient])
     setTotalPrice({
       type: 'increment',
-      amount: ingredient.price
+      amount: ingredient?.price
     })
   }
 
-  const onClickOnIngredient = (ingredient) => {
+  const onClickOnIngredient = (ingredient: Ingredient) => {
     setIsCheckoutOpen(false)
     setIsOpen(true)
     setChosenIngredient(ingredient)
@@ -113,7 +115,7 @@ function App() {
               {
                 isLoading ?
                 <List></List> :
-                <BurgerIngredients products={products} onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
+                <BurgerIngredients ingredients={products} onAddItem={onClickOnIngredient} OnChangeBun={onClickOnIngredient} />
               }
 
               {

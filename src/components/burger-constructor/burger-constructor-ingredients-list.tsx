@@ -2,8 +2,11 @@ import ConstructorElementEmpty from '../ui/ConstructorElementEmpty'
 import styles from './styles/burger-constructor.module.scss'
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 
-const BurgerConstructorIngredientsList = ({ ingredients }) => {
+import { Ingredient } from '../../../types/types'
 
+const BurgerConstructorIngredientsList: React.FC<{
+    ingredients: Ingredient[];
+}> = ({ ingredients }) => {
     if (ingredients && ingredients.length > 0) {
         return (
             <div className={`${styles.ingredients} mt-4`}>

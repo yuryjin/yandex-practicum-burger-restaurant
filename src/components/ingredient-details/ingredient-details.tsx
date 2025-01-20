@@ -4,7 +4,15 @@ import IngredientDetailsInfoBlock from './ingredient-details-info-block'
 import IngredientDetailsInfoItem from './ingredient-details-info-item'
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 
-const IngredientDetails = ({ ingredient, onClose }) => {
+import { Ingredient } from '../../../types/types'
+
+const IngredientDetails: React.FC<{
+    ingredient: Ingredient;
+    onClose: () => void;
+}> = ({ 
+    ingredient, 
+    onClose
+}) => {
   return (
     <div className={`${styles.wrapper}`}>
         <div className={`${styles.card} p-10 pb-15`}>
