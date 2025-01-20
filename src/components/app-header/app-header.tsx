@@ -8,24 +8,24 @@ const AppHeader = () => {
         <header className={styles.header}>
             <nav>
                 <menu className={styles.menu}>
-                    <li className={styles.li}>
+                    <a className={styles.a}>
                         <BurgerIcon type='primary' />
-                        <a className="text text_type_main-default">Конструктор</a>
-                    </li>
+                        <span className="text text_type_main-default">Конструктор</span>
+                    </a>
 
-                    <li className={styles.li}>
+                    <a className={styles.a}>
                         <ListIcon type='secondary' />
-                        <a className="text text_type_main-default text_color_inactive">Лента заказов</a>
-                    </li>
+                        <span className="text text_type_main-default text_color_inactive">Лента заказов</span>
+                    </a>
                 </menu>
 
                 <Logo />
 
                 <menu className={styles.menu}>
-                    <li className={styles.li}>
+                    <a className={styles.a}>
                         <ProfileIcon  type='secondary' />
-                        <a className="text text_type_main-default text_color_inactive">Личный кабинет</a>
-                    </li>
+                        <span className="text text_type_main-default text_color_inactive">Личный кабинет</span>
+                    </a>
                 </menu>
             </nav>
         </header>
