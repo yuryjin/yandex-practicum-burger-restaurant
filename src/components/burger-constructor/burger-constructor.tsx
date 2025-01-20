@@ -14,7 +14,7 @@ const BurgerConstructor: React.FC<{
   return (
     <>
       <div className='pt-25 pr-1'>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className={styles.wrapper}>
           {
             bun ?
             <ConstructorElement

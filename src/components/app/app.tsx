@@ -56,7 +56,12 @@ function App() {
   const uploadProducts = () => {
     const fetchUrl = "https://norma.nomoreparties.space/api/ingredients"
     fetch(fetchUrl)
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка ${res.status}`);
+      })
       .then(data => {
         setProducts(data.data)
         setIsLoading(false)

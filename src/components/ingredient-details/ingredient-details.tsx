@@ -22,7 +22,7 @@ const IngredientDetails: React.FC<{
             </header>
             
             <div className={styles.info}>
-                <img className={styles.productImage} src={String(ingredient?.image)}></img>
+                <img className={styles.productImage} src={String(ingredient?.image)} alt={String(ingredient?.name ? ingredient?.name : 'Изображение ингредиента')}></img>
                 <h4 className="text text_type_main-medium pt-4 m-0">{ingredient?.name}</h4>
 
                 <IngredientDetailsInfoBlock>
@@ -34,7 +34,6 @@ const IngredientDetails: React.FC<{
 
             </div>
         </div>
-        {/* Детали ингредиента */}
     </div>
   )
 }
