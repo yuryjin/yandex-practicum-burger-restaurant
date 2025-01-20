@@ -17,7 +17,7 @@ const Modal: React.FC<{
   onClose 
 }) => {
     useEffect(() => {
-      const close = (e) => {
+      const close = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.keyCode === 27 || e.key === 'Escape'){
           onClose()
         }

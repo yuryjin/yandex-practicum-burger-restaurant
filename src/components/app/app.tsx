@@ -54,7 +54,8 @@ function App() {
   }, [])
   
   const uploadProducts = () => {
-    fetch(`https://norma.nomoreparties.space/api/ingredients`)
+    const fetchUrl = "https://norma.nomoreparties.space/api/ingredients"
+    fetch(fetchUrl)
       .then(res => res.json())
       .then(data => {
         setProducts(data.data)
