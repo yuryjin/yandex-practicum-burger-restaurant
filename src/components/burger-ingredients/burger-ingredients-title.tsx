@@ -1,4 +1,4 @@
-import styles from './burger-ingredients.module.scss'
+import styles from './styles/burger-ingredients.module.scss'
 
 const BurgerIngredientsTitle = () => {
   return (

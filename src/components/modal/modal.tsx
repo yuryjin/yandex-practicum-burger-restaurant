@@ -1,9 +1,11 @@
 import { createPortal } from 'react-dom'
 import styles from './styles/modal.module.scss'
 import ModalOverlay from '../modal-overlay/modal-overlay'
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 const portalDiv = document.getElementById('portal')!;
+
+
 
 const Modal: React.FC<{
     open: Boolean;
@@ -14,6 +16,16 @@ const Modal: React.FC<{
   children, 
   onClose 
 }) => {
+    useEffect(() => {
+      const close = (e) => {
+        if(e.keyCode === 27 || e.key === 'Escape'){
+          onClose()
+        }
+      }
+      window.addEventListener('keydown', close)
+      return () => window.removeEventListener('keydown', close)
+    },[])
+
     if (!open) return null
 
     return createPortal(
