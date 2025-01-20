@@ -25,13 +25,27 @@ const IngredientDetails: React.FC<{
                 <img className={styles.productImage} src={String(ingredient?.image)} alt={String(ingredient?.name ? ingredient?.name : 'Изображение ингредиента')}></img>
                 <h4 className="text text_type_main-medium pt-4 m-0">{ingredient?.name}</h4>
 
-                <IngredientDetailsInfoBlock>
-                    <IngredientDetailsInfoItem text="Калории,ккал" value={ingredient?.calories} />
-                    <IngredientDetailsInfoItem text="Белки, г" value={ingredient?.proteins} />
-                    <IngredientDetailsInfoItem text="Жиры, г" value={ingredient?.fat} />
-                    <IngredientDetailsInfoItem text="Углеводы, г" value={ingredient?.carbohydrates} />
-                </IngredientDetailsInfoBlock>
+                <div className={`${styles.layout} pt-8`}>
+                    <div className={styles.infoitem}>
+                        <p className={`text text_type_main-small ${styles.text}`}>Калории,ккал</p>
+                        <p className={`text text_type_main-small ${styles.text} mt-2`}>{ingredient?.calories}</p>
+                    </div>
 
+                    <div className={styles.infoitem}>
+                        <p className={`text text_type_main-small ${styles.text}`}>Белки, г</p>
+                        <p className={`text text_type_main-small ${styles.text} mt-2`}>{ingredient?.proteins}</p>
+                    </div>
+                    
+                    <div className={styles.infoitem}>
+                        <p className={`text text_type_main-small ${styles.text}`}>Жиры, г</p>
+                        <p className={`text text_type_main-small ${styles.text} mt-2`}>{ingredient?.fat}</p>
+                    </div>
+
+                    <div className={styles.infoitem}>
+                        <p className={`text text_type_main-small ${styles.text}`}>Углеводы, г</p>
+                        <p className={`text text_type_main-small ${styles.text} mt-2`}>{ingredient?.carbohydrates}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

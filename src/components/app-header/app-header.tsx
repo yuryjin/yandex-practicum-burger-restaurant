@@ -10,12 +10,12 @@ const AppHeader = () => {
                 <menu className={styles.menu}>
                     <li className={styles.li}>
                         <BurgerIcon type='primary' />
-                        <span className="text text_type_main-default">Конструктор</span>
+                        <a className="text text_type_main-default">Конструктор</a>
                     </li>
 
                     <li className={styles.li}>
                         <ListIcon type='secondary' />
-                        <span className="text text_type_main-default text_color_inactive">Лента заказов</span>
+                        <a className="text text_type_main-default text_color_inactive">Лента заказов</a>
                     </li>
                 </menu>
 
@@ -24,7 +24,7 @@ const AppHeader = () => {
                 <menu className={styles.menu}>
                     <li className={styles.li}>
                         <ProfileIcon  type='secondary' />
-                        <span className="text text_type_main-default text_color_inactive">Личный кабинет</span>
+                        <a className="text text_type_main-default text_color_inactive">Личный кабинет</a>
                     </li>
                 </menu>
             </nav>

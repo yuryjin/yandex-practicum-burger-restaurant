@@ -1,26 +1,18 @@
 .wrapper {
-    // background: #1C1C21;
-    
-
     width: 720px;
     height: 538px;
     gap: 10px;
     border-radius: 40px 0px 0px 0px;
     border: 1px 0px 0px 0px;
     opacity: 0px;
-
-
     width: 720px;
     border-radius: 40px;
     border: 1px solid #4C4CFF33;
-
     background-color: rgba(0,0,0,.6);
-
     box-shadow: 0px 0px 1px 0px #0000000A;
     box-shadow: 0px 4px 8px 0px #0000000A;
     box-shadow: 0px 16px 24px 0px #0000000A;
     box-shadow: 0px 24px 32px 0px #0000000A;
-
 }
 
 .card {
@@ -52,4 +44,20 @@
     h4 {
         line-height: 64px;
     }
+}
+
+.layout {
+    display: flex;
+    gap: 20px;
+}
+
+.infoitem {
+    width: 120px;
+    height: 56px;
+    text-align: center;
+}
+
+.text {
+    line-height: 24px;
+    color: #8585AD;
 }
