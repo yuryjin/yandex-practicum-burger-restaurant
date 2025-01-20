@@ -1,8 +1,13 @@
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './styles/order-details.module.scss'
 import orderdoneicon from '../../images/order-done-icon.png';
+import React from 'react';
 
-const OrderDetails = ({ onClose }) => {
+const OrderDetails: React.FC<{
+  onClose: () => void,
+}> = ({ 
+  onClose 
+}) => {
   return (
     <div className={`${styles.wrapper}`}>
         <header className={styles.header}>

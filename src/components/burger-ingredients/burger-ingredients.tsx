@@ -9,8 +9,8 @@ import { Ingredient } from '../../../types/types.ts';
 
 const BurgerIngredients: React.FC<{
     ingredients: Ingredient[];
-    onAddItem: () => void,
-    OnChangeBun: () => void,
+    onAddItem: (bun: Ingredient) => void,
+    OnChangeBun: (ingredient: Ingredient) => void,
 }>  = ({ ingredients, onAddItem, OnChangeBun }) => {
   const [current, setCurrent] = useState('Булки')
 
@@ -28,7 +28,6 @@ const BurgerIngredients: React.FC<{
   return (
     <>
       <BurgerIngredientsTitle />
-      {/* <BurgerTabs></BurgerTabs> */}
       <div className={styles.tabs}>
         <Tab value="Булки" active={current === 'Булки'} onClick={setCurrent}>
           Булки

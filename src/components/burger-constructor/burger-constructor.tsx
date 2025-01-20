@@ -21,8 +21,8 @@ const BurgerConstructor: React.FC<{
               type="top"
               isLocked={true}
               text={bun?.name ? `${bun.name} (верх)` : 'Пожалуйста, выбери булку для вашего бургера'}
-              price={bun ? bun.price : ''}
-              thumbnail={bun ? bun.image : ''}
+              price={Number(bun ? bun.price : '')}
+              thumbnail={String(bun ? bun.image : '')}
               extraClass={`ml-10`}
             /> : 
             <ConstructorElementEmpty 
@@ -39,8 +39,8 @@ const BurgerConstructor: React.FC<{
               type="bottom"
               isLocked={true}
               text={bun?.name ? `${bun.name} (низ)` : 'Пожалуйста, выбери булку для вашего бургера'}
-              price={bun ? bun.price : ''}
-              thumbnail={bun ? bun.image : ''}
+              price={Number(bun ? bun.price : '')}
+              thumbnail={String(bun ? bun.image : '')}
               extraClass={`ml-10`}
             /> : 
             <ConstructorElementEmpty 

@@ -5,7 +5,7 @@ import { Ingredient } from '../../../types/types';
 
 const IngredientDetailsInfoItem: React.FC<{
   text: string | undefined;
-  value: string | undefined;
+  value: number | null;
 }> = ({ text, value}) => {
   return (
     <div className={styles.infoitem}>

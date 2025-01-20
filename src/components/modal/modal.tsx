@@ -1,8 +1,19 @@
 import { createPortal } from 'react-dom'
 import styles from './styles/modal.module.scss'
 import ModalOverlay from '../modal-overlay/modal-overlay'
+import React, { ReactNode } from 'react';
 
-const Modal = ({ open, children, onClose }) => {
+const portalDiv = document.getElementById('portal')!;
+
+const Modal: React.FC<{
+    open: Boolean;
+    children: ReactNode,
+    onClose: () => void,
+}> = ({ 
+  open, 
+  children, 
+  onClose 
+}) => {
     if (!open) return null
 
     return createPortal(
@@ -12,7 +23,7 @@ const Modal = ({ open, children, onClose }) => {
         </div>
         <ModalOverlay onClose={() => onClose()} />
       </>,
-      document.getElementById('portal')
+      portalDiv
     )
 }
 

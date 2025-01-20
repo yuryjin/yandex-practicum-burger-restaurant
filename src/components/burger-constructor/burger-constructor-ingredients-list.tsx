@@ -17,9 +17,9 @@ const BurgerConstructorIngredientsList: React.FC<{
                                 <DragIcon type="primary" />
                 
                                 <ConstructorElement
-                                    text={ingredient.name}
-                                    price={ingredient.price}
-                                    thumbnail={ingredient.image}
+                                    text={String(ingredient.name)}
+                                    price={Number(ingredient.price)}
+                                    thumbnail={String(ingredient.image)}
                                     extraClass={`mt-0 ml-1`}
                                 />
                             </div>

@@ -21,9 +21,8 @@ const IngredientDetails: React.FC<{
                 <CloseIcon type="primary" onClick={onClose} />
             </header>
             
-            {/* {JSON.stringify(ingredient, null, 2)} */}
             <div className={styles.info}>
-                <img className={styles.productImage} src={ingredient.image}></img>
+                <img className={styles.productImage} src={String(ingredient.image)}></img>
                 <h4 className="text text_type_main-medium pt-4 m-0">{ingredient.name}</h4>
 
                 <IngredientDetailsInfoBlock>

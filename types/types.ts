@@ -2,6 +2,7 @@ export interface Ingredient {
     _id: string,
     name: string | null,
     type: string | null,
+    calories: number | null,
     proteins: number | null,
     fat: number | null,
     carbohydrates: number | null,
