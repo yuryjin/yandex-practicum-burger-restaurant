@@ -10,8 +10,8 @@ const BurgerGrid: React.FC<{
 }) => {
   return (
     <>
-      <h3 className={`${styles.gridHeader} text text_type_main-medium pt-4`}>{name}</h3>
-      <div className={styles.grid}>{children}</div>
+      <h3 className={`${styles.gridHeader} text text_type_main-medium`}>{name}</h3>
+      <div className={`${styles.grid} mb-2`}>{children}</div>
     </>
   )
 }

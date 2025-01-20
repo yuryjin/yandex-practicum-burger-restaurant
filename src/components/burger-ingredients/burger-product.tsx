@@ -17,7 +17,7 @@ const BurgerProduct: React.FC<{
 
   return (
     <>
-      <div className='product-card-outer pt-6 pl-4 pr-4 pb-10' onClick={() => chooseProduct(product)}>
+      <div className='product-card-outer pt-6 pl-4 pr-4 pb-8' onClick={() => chooseProduct(product)}>
         <img className={styles.productImage} src={String(product.image)} alt={product.name ? product.name : 'Изображение ингредиента'}></img>
 
         <div className={styles.price_title}>
