@@ -22,14 +22,14 @@ const IngredientDetails: React.FC<{
             </header>
             
             <div className={styles.info}>
-                <img className={styles.productImage} src={String(ingredient.image)}></img>
-                <h4 className="text text_type_main-medium pt-4 m-0">{ingredient.name}</h4>
+                <img className={styles.productImage} src={String(ingredient?.image)}></img>
+                <h4 className="text text_type_main-medium pt-4 m-0">{ingredient?.name}</h4>
 
                 <IngredientDetailsInfoBlock>
-                    <IngredientDetailsInfoItem text="Калории,ккал" value={ingredient.calories} />
-                    <IngredientDetailsInfoItem text="Белки, г" value={ingredient.proteins} />
-                    <IngredientDetailsInfoItem text="Жиры, г" value={ingredient.fat} />
-                    <IngredientDetailsInfoItem text="Углеводы, г" value={ingredient.carbohydrates} />
+                    <IngredientDetailsInfoItem text="Калории,ккал" value={ingredient?.calories} />
+                    <IngredientDetailsInfoItem text="Белки, г" value={ingredient?.proteins} />
+                    <IngredientDetailsInfoItem text="Жиры, г" value={ingredient?.fat} />
+                    <IngredientDetailsInfoItem text="Углеводы, г" value={ingredient?.carbohydrates} />
                 </IngredientDetailsInfoBlock>
 
             </div>

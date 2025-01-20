@@ -37,7 +37,7 @@ function updatePrice(totalPrice: number, action: Action) {
 function App() {
   const [ingredients, setIngredients] = useState<Ingredient[] | [] | null>([])
   const [currentBun, setCurrentBun] = useState<Ingredient | null>(null)
-  const [totalPrice, setTotalPrice] = useReducer(updatePrice, 0)
+  const [totalPrice, setTotalPrice] = useReducer(updatePrice, 610)
   const [isOpen, setIsOpen] = useState(false)
   const [chosenIngredient, setChosenIngredient] = useState<Ingredient | null>(null)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)

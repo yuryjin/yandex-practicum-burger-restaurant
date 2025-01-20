@@ -5,7 +5,7 @@ import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burg
 import { Ingredient } from '../../../types/types'
 
 const BurgerConstructorIngredientsList: React.FC<{
-    ingredients: Ingredient[];
+    ingredients: Ingredient[] | [] | null;
 }> = ({ ingredients }) => {
     if (ingredients && ingredients.length > 0) {
         return (

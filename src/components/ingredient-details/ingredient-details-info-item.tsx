@@ -3,7 +3,7 @@ import styles from './styles/ingredient-details-info-item.module.scss'
 
 const IngredientDetailsInfoItem: React.FC<{
   text: string | undefined;
-  value: number | null;
+  value: number | null | undefined;
 }> = ({ text, value}) => {
   return (
     <div className={styles.infoitem}>
