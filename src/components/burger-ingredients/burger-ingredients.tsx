@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import BurgerIngredientsTitle from './burger-ingredients-title'
-import styles from './burger-ingredients.module.scss'
+import styles from './styles/burger-ingredients.module.scss'
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import BurgerProduct from './burger-product.tsx'
 import BurgerGrid from './burger-grid.tsx'
